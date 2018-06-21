@@ -80,7 +80,19 @@
         </a>
       </li>
     </ul>
+    <ul>
+      <li v-for="user in users" v-bind:key="user.firstname">
+        {{ user.firstname }} {{ user.lastname }}
+      </li>
+    </ul>
+    <div>
+        <input type="text" name="input_val" id="input_val" v-model="input_val">
+    </div>
+    <div>
+      <button class="btn btn-primary" v-on:click="getTest()">Você clicou {{counter}} vezes!</button>
+    </div>
   </div>
+  
 </template>
 
 <script>
@@ -88,7 +100,19 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Hello World!',
+      users: [
+        { firstname: 'Sebastian', lastname: 'Eschweiler' },
+        { firstname: 'Bill', lastname: 'Smith' },
+        { firstname: 'John', lastname: 'Porter' }
+      ],
+      input_val: '',
+      counter: 0
+    }
+  },
+  methods: {
+    getTest: function(){
+      return alert("TESTE");
     }
   }
 }
